@@ -1,26 +1,27 @@
-const assert = require('assert');
-const tellSign = require('../lib/tell-sign');
+import assert from "assert";
+import { tellSign } from "../lib/tell-sign.js";
 
-describe('Library Main', () => {
-  describe('tellSign', () => {
-    it('should return the right zodiac sign when given date', () => {
-      const sign = tellSign({ month: 12, day: 24 });
-      assert.equal(sign.sign, 'Sagittarius');
-    });
+describe("tellSign", () => {
+  it("identifies the correct sign for various date inputs", () => {
+    const { sign: tropicalSign } = tellSign({ month: 12, day: 24 });
+    assert.equal(tropicalSign, "Capricorn");
 
-    it('should return the right zodiac sign when given date', () => {
-      const sign = tellSign({ month: 7, day: 10, year: 1900 });
-      assert.equal(sign.sign, 'Gemini');
-    });
+    const { sign: siderealSign } = tellSign({ month: 12, day: 24 }, "sidereal");
+    assert.equal(siderealSign, "Sagittarius");
+  });
 
-    it('should return the right zodiac sign when given date', () => {
-      const sign = tellSign({ month: 8, day: 16, year: 1900 });
-      assert.equal(sign.sign, 'Leo');
-    });
+  it("returns facts", () => {
+    const sign = tellSign({ month: 2, day: 15 });
+    assert.deepEqual(sign.facts, ["Independent", "Open-Minded", "Inventive"]);
+  });
 
-    it('should return the right zodiac sign when given a zodiac type', () => {
-      const sign = tellSign({ month: 5, day: 22, year: 1900 }, 'tropical');
-      assert.equal(sign.sign, 'Gemini');
-    });
-  })
-})
+  it("returns element", () => {
+    const sign = tellSign({ month: 2, day: 15 });
+    assert.equal(sign.element, "Air");
+  });
+
+  it("returns lucky gem", () => {
+    const sign = tellSign({ month: 2, day: 15 });
+    assert.equal(sign.luckyGem, "Amethyst");
+  });
+});

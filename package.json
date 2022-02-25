@@ -1,19 +1,26 @@
 {
-  "name": "sign-teller",
-  "version": "3.2.2",
+  "name": "sign-teller-esm",
+  "version": "0.1",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/micah-akpan/sign-teller.git"
   },
-  "author": "Micah Akpan <mickey4sure2k7@gmail.com>",
-  "description": "Sign Teller is a simple-to-use library that tells zodiac signs",
-  "keywords": ["zodiac signs", "signs", "zodiac", "astrology", "birthday"],
+  "type": "module",
+  "author": "Casi Newell <casi.newell@launchacademy.com>",
+  "description": "Sign Teller is a simple-to-use library that tells zodiac signs. Forked from Micah Akpan's original library.",
+  "keywords": [
+    "zodiac signs",
+    "signs",
+    "zodiac",
+    "astrology",
+    "birthday"
+  ],
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^3.0.6",
-    "mocha": "^6.2.0",
-    "nyc": "^14.1.1"
+    "coveralls": "^3.1.1",
+    "mocha": "^9.2.1",
+    "nyc": "^15.1.0"
   },
   "scripts": {
     "test": "nyc mocha",
